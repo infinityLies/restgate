@@ -286,6 +286,6 @@ func secureCompare(given string, actual string) bool {
 		return subtle.ConstantTimeCompare([]byte(given), []byte(actual)) == 1
 	} else {
 		/* Securely compare actual to itself to keep constant time, but always return false */
-		return subtle.ConstantTimeCompare([]byte(actual), []byte(actual)) == 1 && false
+		return subtle.ConstantTimeCompare([]byte(given), []byte(given)) == 1 && false
 	}
 }
